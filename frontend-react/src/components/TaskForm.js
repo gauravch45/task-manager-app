@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const TaskForm = ({ onTaskAdded }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("")
@@ -10,7 +12,7 @@ const TaskForm = ({ onTaskAdded }) => {
         if (!title) return;
 
         try {
-            await axios.post("http://35.170.245.2:5000/api/tasks", { title , description });
+            await axios.post(`${API_URL}/api/tasks`, { title , description });
             setTitle("");
             setDescription("");
             onTaskAdded();  // Refresh task list after adding
