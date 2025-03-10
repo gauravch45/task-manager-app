@@ -10,7 +10,7 @@ const TaskForm = ({ onTaskAdded }) => {
         if (!title) return;
 
         try {
-            await axios.post("http://localhost:5000/api/tasks", { title , description });
+            await axios.post("http://35.170.245.2:5000/api/tasks", { title , description });
             setTitle("");
             setDescription("");
             onTaskAdded();  // Refresh task list after adding
