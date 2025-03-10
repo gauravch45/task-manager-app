@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TaskForm from "./TaskForm";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);
 
     // Fetch tasks from backend
     const fetchTasks = () => {
-        axios.get("http://localhost:5000/api/tasks")
+        axios.get(`${API_URL}/tasks`)
             .then(response => setTasks(response.data))
             .catch(error => console.error("Error fetching tasks:", error));
     };
@@ -19,7 +21,7 @@ const TaskList = () => {
     // Delete tasks on backend
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+            await axios.delete(`${API_URL}/tasks${id}`);
             fetchTasks();
         } catch (error) {
             console.error("Error deleting task:", error);
@@ -32,7 +34,7 @@ const TaskList = () => {
         if (!newTitle) return;
     
         try {
-            await axios.put(`http://localhost:5000/api/tasks/${id}`, { title: newTitle });
+            await axios.put(`${API_URL}/tasks${id}`, { title: newTitle });
             fetchTasks();
         } catch (error) {
             console.error("Error updating task:", error);
