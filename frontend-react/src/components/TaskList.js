@@ -21,7 +21,7 @@ const TaskList = () => {
     // Delete tasks on backend
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`${API_URL}/api/tasks${id}`);
+            await axios.delete(`${API_URL}/api/tasks/${id}`);
             fetchTasks();
         } catch (error) {
             console.error("Error deleting task:", error);
@@ -34,7 +34,7 @@ const TaskList = () => {
         if (!newTitle) return;
     
         try {
-            await axios.put(`${API_URL}/api/tasks${id}`, { title: newTitle });
+            await axios.put(`${API_URL}/api/tasks/${id}`, { title: newTitle });
             fetchTasks();
         } catch (error) {
             console.error("Error updating task:", error);
