@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif !important;
   text-align: center;
   font-size: 20px;  
 
@@ -17,7 +17,7 @@ button {
   background-color:darkslategrey;
   color: white;
   border: 2px black solid ;
-  border-radius: 8px;
+  border-radius: 8px !important;
   cursor: pointer;
 }
 
@@ -30,6 +30,8 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  font-weight: 700 !important;
 }
 
 .h4 {
@@ -43,6 +45,10 @@ h2 {
 .card {
   height: 100%;
   width: 100%;
+  padding: 10px;
+  box-shadow: 10px crimson !important;
+
+  background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
   display: flex;
   flex-direction: column;
 
@@ -68,21 +74,30 @@ h2 {
 
 .card-clicks{
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
 }
 
 ul {
   list-style: none;
-  padding: 0;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
+li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+li > button {
+  margin: 0 2px 0 2px;
+}
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 20% 0 20%;
+  margin: 0 20% 0 20% !important;
   border: 2px solid black;
 }
 
@@ -106,9 +121,9 @@ ul {
   height: auto;
   width: 25vh;
 
+
   border-radius: 10px;
-  background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out !important;
 }
 
 

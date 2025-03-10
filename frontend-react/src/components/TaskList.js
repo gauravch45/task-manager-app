@@ -51,7 +51,7 @@ const TaskList = () => {
             <div className="card-div mt-4">
                 {tasks.map(task => (
                     <div key={task._id} className=" task-card">
-                        <div className="card shadow">
+                        <div className="card">
                             <h2 className="card-title">{task.title}</h2>
                             <h4 className="card-description">{task.description}</h4>
                             <div className="card-clicks">
