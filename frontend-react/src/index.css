@@ -90,7 +90,7 @@ li {
 }
 
 li > button {
-  margin: 0 2px 0 2px;
+  margin: 2px;
 }
 .container {
   display: flex;
@@ -134,4 +134,16 @@ li > button {
 .card-div{
   display: flex;
   flex-wrap: wrap;
+}
+
+.finish-btn{
+  font-size: 12px;
+  align-items: center;
+  height: 30px;
+  width: auto;
+  background-color:green ;
+}
+
+.finish-btn:hover {
+  background-color: lightgreen;
 }

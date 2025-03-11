@@ -41,6 +41,17 @@ const TaskList = () => {
         }
     };
 
+    // Change Status to of the tasks on backend
+    const handleStatus = async (id) => {
+        const newStatus = "completed";
+        try {
+            await axios.put(`${API_URL}/api/tasks/${id}`, {status: newStatus });
+            fetchTasks();
+        } catch (error) {
+            console.error("Error changing status:", error);
+        }
+    };
+
     
     return (
         <div className="container">
@@ -54,11 +65,13 @@ const TaskList = () => {
                         <div className="card">
                             <h2 className="card-title">{task.title}</h2>
                             <h4 className="card-description">{task.description}</h4>
+                            <div>{task.status}</div>
                             <div className="card-clicks">
                             <ul> 
                                     <li>
                                         <button onClick={() => handleUpdate(task._id)}>Edit</button>
                                         <button onClick={() => handleDelete(task._id)}>Delete</button>
+                                        <button className="finish-btn" onClick={() => handleStatus(task._id)}>Finished</button>
                                     </li>
                             </ul>
                             </div>
