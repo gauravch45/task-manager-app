@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: "mongodb+srv://anubis:admin@cluster0.k2oin.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    volumes:
+      - ./backend:/app
+    command: ["node", "server.js"]
+
+  frontend:
+    build: ./frontend-react
+    container_name: frontend_container
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://3.86.164.102:5000
+    volumes:
+      - ./frontend-react:/app
+    command: ["npm","start"]
