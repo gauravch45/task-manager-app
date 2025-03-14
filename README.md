@@ -39,3 +39,6 @@ The Task Manager allows users to: ✅ Create new tasks
 ✅ Due Dates & Reminders
 ✅ Task Prioritization (High, Medium, Low)
 ✅ Drag & Drop for Task Reordering
+
+----------------------------------------------------------------------------------
+How to Run the application on VM Machine
