@@ -4,10 +4,12 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --save react react-dom react-scripts
+RUN npm install
 
 COPY . .
 
 EXPOSE 3000
+
+CMD ["npm", "install", "react-scripts"]
 
 CMD ["npm","start"]
