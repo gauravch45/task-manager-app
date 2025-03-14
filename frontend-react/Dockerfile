@@ -10,6 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "install", "react-scripts"]
-
 CMD ["npm","start"]
