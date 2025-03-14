@@ -4,9 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
-
-RUN npm install react-scripts
+RUN npm install --save react react-dom react-scripts
 
 COPY . .
 
