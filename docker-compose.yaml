@@ -8,9 +8,6 @@ services:
       - "5000:5000"
     environment:
       MONGO_URI: "mongodb+srv://anubis:admin@cluster0.k2oin.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    volumes:
-      - ./backend:/app
-    command: ["node", "server.js"]
 
   frontend:
     build: ./frontend
