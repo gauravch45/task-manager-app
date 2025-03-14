@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   backend:
-    build: ./backend
+    image: anubislord2109/task-manager-backend:latest
     container_name: backend
     restart: always
     ports:
@@ -10,7 +10,7 @@ services:
       MONGO_URI: "mongodb+srv://anubis:admin@cluster0.k2oin.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
   frontend:
-    build: ./frontend
+    image: anubislord2109/task-manager-frontend:latest
     container_name: frontend
     restart: always
     depends_on:
