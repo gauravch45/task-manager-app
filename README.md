@@ -41,4 +41,6 @@ The Task Manager allows users to: ✅ Create new tasks
 ✅ Drag & Drop for Task Reordering
 
 ----------------------------------------------------------------------------------
-How to Run the application on VM Machine
+How to Run the application on VM Machine:- 
+
+1. 
