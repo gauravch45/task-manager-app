@@ -2,11 +2,6 @@
 pipeline {
     agent {label "demoagent"}
     
-    environment {
-        DOCKER_IMAGE_BACKEND = ""
-        DOCKER_IMAGE_FRONTEND = "task-manager-frontend"
-    }
-    
     stages{
         stage('Hello'){
             steps {
