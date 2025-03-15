@@ -1,0 +1,61 @@
+@Library("Shared") _
+pipeline {
+    agent {label "demoagent"}
+    
+    environment {
+        DOCKER_IMAGE_BACKEND = ""
+        DOCKER_IMAGE_FRONTEND = "task-manager-frontend"
+    }
+    
+    stages{
+        stage('Hello'){
+            steps {
+                script{
+                    hello()
+                }   
+            }
+        }
+        stage('Code'){
+            steps {
+                script {
+                    clone("https://github.com/gauravch45/task-manager-app","main")
+                }
+            }
+        }
+        stage('Build'){
+            steps {
+                script{
+                    docker_build("task-manager-backend","latest","anubislord2109","backend")
+                    docker_build("task-manager-frontend","latest","anubislord2109","frontend")
+                    
+                }   
+            }
+        }
+        stage('Push to Docker Hub'){
+            steps {
+                script{
+                    docker_push("task-manager-backend","latest", "anubislord2109")
+                    docker_push("task-manager-frontend", "latest", "anubislord2109")
+                }
+            }
+        }
+        
+        stage('Debug') {
+            steps {
+                echo 'Listing all Docker images'
+                sh "docker images"
+                echo 'Listing all running containers'
+                sh "docker ps -a"
+                
+            }
+            
+        }
+        stage('Deploy'){
+            steps{
+                echo "This is a Deploy stage"
+                sh "docker-compose down"
+                sh "docker-compose up -d"
+            }
+        }
+    }
+}
