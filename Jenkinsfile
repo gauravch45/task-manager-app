@@ -31,7 +31,7 @@ pipeline {
                 }   
             }
         }
-        stage('Push to Docker Hub'){
+        stage('Image Push'){
             steps {
                 script{
                     docker_push("task-manager-backend","latest", "anubislord2109")
