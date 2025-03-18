@@ -3,13 +3,14 @@ pipeline {
     agent {label "demoagent"}
     
     stages{
-        stage('Hello'){
-            steps {
+        stage("Workspace cleanup"){
+            steps{
                 script{
-                    hello()
-                }   
+                    cleanWs()
+                }
             }
         }
+        
         stage('Code'){
             steps {
                 script {
@@ -17,6 +18,15 @@ pipeline {
                 }
             }
         }
+
+        stage("Trivy: Filesystem scan"){
+            steps{
+                script{
+                    trivy_scan()
+                }
+            }
+        }
+        
         stage('Build'){
             steps {
                 script{
