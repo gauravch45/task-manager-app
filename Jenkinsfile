@@ -1,6 +1,10 @@
 @Library("Shared") _
 pipeline {
     agent {label "demoagent"}
+
+    environment{
+        SONAR_HOME = tool "Sonar"
+    }
     
     stages{
         stage("Workspace cleanup"){
@@ -23,6 +27,30 @@ pipeline {
             steps{
                 script{
                     trivy_scan()
+                }
+            }
+        }
+
+        stage("OWASP: Dependency check"){
+            steps{
+                script{
+                    owasp_dependency()
+                }
+            }
+        }
+
+        stage("SonarQube: Code Analysis"){
+            steps{
+                script{
+                    sonarqube_analysis("Sonar","task-manager-app","task-manager-app")
+                }
+            }
+        }
+
+        stage("SonarQube: Code Quality Gates"){
+            steps{
+                script{
+                    sonarqube_code_quality()
                 }
             }
         }
