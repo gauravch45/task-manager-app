@@ -89,12 +89,11 @@ pipeline {
                 echo "Deploying is Succcessfull"
             }
         }
-
+    }
         post{
         success{
             archiveArtifacts artifacts: '*.xml', followSymlinks: false
             build job: "Task-manager-app-CD"
         }
-    }
     }
 }
