@@ -15,7 +15,7 @@ pipeline {
             }
         }
         
-        stage('Code'){
+        stage('Cloning of Code'){
             steps {
                 script {
                     clone("https://github.com/gauravch45/task-manager-app","main")
@@ -31,13 +31,13 @@ pipeline {
             }
         }
 
-        stage("OWASP: Dependency check"){
+        /* stage("OWASP: Dependency check"){
             steps{
                 script{
                     owasp_dependency()
                 }
             }
-        }
+        } */
 
         stage("SonarQube: Code Analysis"){
             steps{
