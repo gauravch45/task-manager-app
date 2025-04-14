@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   backend:
-   image: anubislord2109/task-manager-backend:v2
+    image: anubislord2109/task-manager-backend:v2
     container_name: backend
     restart: always
     ports:
