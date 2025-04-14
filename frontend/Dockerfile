@@ -4,12 +4,14 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm cache clean --force
-
 RUN npm install
 
 COPY . .
 
 EXPOSE 3000
 
+<<<<<<< HEAD
 CMD ["npm", "start"]
+=======
+CMD ["npm","start"]
+>>>>>>> a0399cc (minor changes in dockerfile)
