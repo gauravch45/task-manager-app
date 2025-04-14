@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["node_modules/.bin/react-scripts", "start"]
+CMD ["npm", "start"]
