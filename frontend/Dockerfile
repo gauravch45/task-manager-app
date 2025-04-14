@@ -10,8 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-<<<<<<< HEAD
 CMD ["npm", "start"]
-=======
-CMD ["npm","start"]
->>>>>>> a0399cc (minor changes in dockerfile)
