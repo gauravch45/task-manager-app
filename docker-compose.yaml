@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   backend:
-    build: backend/
+   image: anubislord2109/task-manager-backend:v2
     container_name: backend
     restart: always
     ports:
@@ -10,7 +10,7 @@ services:
       - backend/.env
 
   frontend:
-    build: frontend/
+    image: anubislord2109/task-manager-frontend:v2
     container_name: frontend
     restart: always
     depends_on:
