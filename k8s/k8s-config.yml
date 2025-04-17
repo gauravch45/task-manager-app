@@ -40,7 +40,7 @@ spec:
   selector:
     app.kubernetes.io/name: task-manager
   ports:
-     name: frontend-port
+      name: frontend-port
       port: 3000
       targetPort: 3000
   type: NodePort
