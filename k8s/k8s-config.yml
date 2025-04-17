@@ -43,6 +43,7 @@ spec:
     - name: frontend-port
       port: 3000
       targetPort: 3000
+      nodePort: 30371
   type: NodePort
 ---
 apiVersion: v1
