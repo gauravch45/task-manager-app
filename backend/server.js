@@ -7,8 +7,28 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const taskRoutes = require('./routes/taskRoutes');
-app.use('/api', taskRoutes);
+//Routes
+app.get('/', (req, res) => {
+    res.send("API is running...");
+});
+
+// taskRoutes 
+let taskRoutes;
+try {
+    taskRoutes = require('./routes/taskRoutes');
+    app.use('/api', taskRoutes);
+} catch (error) {
+    console.error("Error loading taskRoutes module:", error.message);
+}
+
+// usersRoutes
+let usersRoutes;
+try {
+    usersRoutes = require('./routes/usersRoutes');
+    app.use('/api', usersRoutes);
+} catch (error) {
+    console.error("Error loading usersRoutes module:", error.message);
+}
 
 //Connect to Mongoose
 mongoose.connect(process.env.MONGO_URI, {

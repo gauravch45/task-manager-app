@@ -7,6 +7,8 @@ const API_URL = process.env.REACT_APP_API_URL;
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);
 
+    //console.log("API_URL", API_URL);
+
     // Fetch tasks from backend
     const fetchTasks = () => {
         axios.get(`${API_URL}/api/tasks`)
@@ -79,30 +81,8 @@ const TaskList = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </div> 
     );
-    
-    
-
-    /*return (
-        <div>
-            <h2>Task List</h2>
-            <ul>
-                {tasks.map(task => (
-                    <li key={task._id}>{task.title}</li>
-                ))}
-            </ul>
-            <ul>
-                {tasks.map(task => (
-                    <li key={task._id}>
-                        {task.title}
-                            <button onClick={() => handleUpdate(task._id)}>Edit</button>
-                            <button onClick={() => handleDelete(task._id)}>Delete</button>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );*/
 };
 
 export default TaskList;
