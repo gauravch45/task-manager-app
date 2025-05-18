@@ -13,8 +13,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <h1>Task Manager</h1>
+
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
@@ -30,7 +29,6 @@ function App() {
               </div>
             </PrivateRoute>} />
         </Routes>
-      </div>
     </Router>
   );
 }
