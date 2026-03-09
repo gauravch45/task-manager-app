@@ -19,10 +19,10 @@ COPY --from=base /app/node_modules ./node_modules
 COPY . .
 
 # Secure the folder permissions
-RUN chown -R taskuser:taskgroup /app
+RUN chown -R testuser:testgroup /app
 
 # Switch to the limited user
-USER taskuser
+USER testuser
 
 EXPOSE 5000
 
