@@ -1,10 +1,6 @@
 @Library("Shared") _
 pipeline {
-    agent {
-        docker {
-            iamge 'docker:24.0'
-        }
-    }
+    agent { label 'docker' }
 
     /*environment{
         SONAR_HOME = tool "Sonar"
