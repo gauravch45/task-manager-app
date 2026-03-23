@@ -1,10 +1,10 @@
 @Library("Shared") _
 pipeline {
-    agent {label "demoagent"}
+    agent any
 
-    environment{
+    /*environment{
         SONAR_HOME = tool "Sonar"
-    }
+    }*/
     
     stages{
         stage("Workspace cleanup"){
@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-        stage("Trivy: Filesystem scan"){
+        /*stage("Trivy: Filesystem scan"){
             steps{
                 script{
                     trivy_scan()
@@ -31,13 +31,13 @@ pipeline {
             }
         }
 
-        /* stage("OWASP: Dependency check"){
+        stage("OWASP: Dependency check"){
             steps{
                 script{
                     owasp_dependency()
                 }
             }
-        } */
+        }
 
         stage("SonarQube: Code Analysis"){
             steps{
@@ -88,7 +88,7 @@ pipeline {
                 sh "docker-compose down && docker-compose up -d"
                 echo "Deploying is Succcessfull"
             }
-        }
+        }*/
     }
      /*   post{
         success{
