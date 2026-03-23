@@ -1,6 +1,10 @@
 @Library("Shared") _
 pipeline {
-    agent any
+    agent {
+        docker {
+            iamge 'docker:24.0'
+        }
+    }
 
     /*environment{
         SONAR_HOME = tool "Sonar"
@@ -17,19 +21,20 @@ pipeline {
         
         stage('Cloning of Code'){
             steps {
-                script {
+                
                     clone("https://github.com/gauravch45/task-manager-app","main")
-                }
             }
         }
 
-        /*stage("Trivy: Filesystem scan"){
+        stage("Trivy: Filesystem scan"){
             steps{
                 script{
-                    trivy_scan()
+                    sh """
+                        docker run --rm -v \$PWD:/app aquasec/trivy fs /app
+                    """
                 }
             }
-        }
+        }/*
 
         stage("OWASP: Dependency check"){
             steps{
