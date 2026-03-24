@@ -21,12 +21,12 @@ spec:
     spec:
       containers:
         - name: backend
-          image: anubislord2109/task-manager-backend:v2
+          image: anubislord2109/task-manager-backend:test
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
         - name: frontend
-          image: anubislord2109/task-manager-frontend:v2
+          image: anubislord2109/task-manager-frontend:test
           imagePullPolicy: Always
           ports:
             - containerPort: 80
