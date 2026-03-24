@@ -1,21 +1,35 @@
 
 services:
   backend:
-    image: anubislord2109/task-manager-backend:test
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        - ENV_FILE= .env
+    #image: anubislord2109/task-manager-backend:test
     container_name: backend
     restart: always
     ports:
       - "5000:5000"
-    environment:
-      - backend/.env
+    env_file:
+      - ./backend/.env
+    #environment:
+    #  - backend/.env
 
   frontend:
-    image: anubislord2109/task-manager-frontend:test
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - ENV_FILE=.env
+    #image: anubislord2109/task-manager-frontend:test
     container_name: frontend
     restart: always
     depends_on:
       - backend
     ports:
       - "80:80"
-    environment:
-      - frontend/.env
+    env_file:
+     - ./frontend/.env
+    #environment:
+    #  - frontend/.env
