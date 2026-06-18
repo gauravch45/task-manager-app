@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: task-manager
+  name: task-manager-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: task-manager-frontend
+  template:
+    metadata:
+      labels:
+        app: task-manager-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: anubislord2109/task-manager-frontend:test
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: REACT_APP_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: task-manager-config
+                  key: REACT_APP_API_URL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: task-manager
+  name: frontend-service
+spec:
+  selector:
+    app.kubernetes.io/name: task-manager
+  ports:
+    - name: frontend-port
+      port: 80
+      targetPort: 80
+      nodePort: 30371
+  type: NodePort
