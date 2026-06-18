@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: task-manager
+  name: test
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: task-manager
-  name: task-manager-config
+  namespace: test
+  name: test-env-config
 data:
   port: "5000"
   NODE_ENV: "production"
@@ -17,8 +17,8 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  namespace: task-manager
-  name: task-manager-secret
+  namespace: test
+  name: test-env-secret
 type: Opaque
 stringData:
   MONGO_URI: "mongodb+srv://anubis:admin@cluster0.k2oin.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"

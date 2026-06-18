@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: task-manager
-  name: task-manager-backend
+  namespace: test
+  name: test-env-backend
 spec:
   replicas: 2
   selector:
     matchLabels: 
-      app: task-manager-backend
+      app: test-env-backend
   template:
     metadata:
       labels:
-        app: task-manager-backend
+        app: test-env-backend
     spec:
       containers:
         - name: backend
@@ -28,17 +28,17 @@ spec:
             - name: MONGO_URI
               valueFrom:
                 secretKeyRef:
-                  name: task-manager-secret
+                  name: test-env-secret
                   key: MONGO_URI
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: task-manager
+  namespace: test
   name: backend-service
 spec:
   selector:
-    app.kubernetes.io/name: task-manager
+    app.kubernetes.io/name: test-env-backend
   ports:
     - name: backend-port
       port: 5000
