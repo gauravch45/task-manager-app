@@ -38,7 +38,7 @@ metadata:
   name: backend-service
 spec:
   selector:
-    app.kubernetes.io/name: test-env-backend
+    app: test-env-backend
   ports:
     - name: backend-port
       port: 5000
